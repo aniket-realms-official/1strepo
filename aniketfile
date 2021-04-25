@@ -29,7 +29,7 @@ pipeline{
             }
             stage ("Build") {
              steps {
-                 echo 'this is pipeline'
+                 echo 'this is pipeline after commit'
              }   
             }
         }
