@@ -1,0 +1,36 @@
+pipeline{
+    agent any
+    environment {
+        WORKSPACE = '/var/lib/jenkins/workspace/pipeline/rock-paper-scissors'
+    }
+     tools { 
+        maven 'maven' 
+        jdk 'jdk' 
+    }
+        stages {
+            stage('print home dir'){
+                steps {
+                    sh'''
+                    echo "PATH = ${PATH}"
+                    echo "{$JAVA_HOME}"
+                    echo "M2_HOME = ${M2_HOME}"
+                    mvn -version
+                    '''
+                }
+            }
+            stage ("Build package") {
+                steps {
+                    dir ('/var/lib/jenkins/workspace/pipeline/rock-paper-scissors') {
+                    sh 'pwd'
+                }
+                    sh 'cd /var/lib/jenkins/workspace/pipeline/rock-paper-scissors'
+                    sh 'mvn -Dmaven.test.failure.ignore=true install'
+                }
+            }
+            stage ("Build") {
+             steps {
+                 echo 'this is pipeline'
+             }   
+            }
+        }
+}
