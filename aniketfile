@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment {
-        WORKSPACE = '/var/lib/jenkins/workspace/pipeline/rock-paper-scissors'
+        WORKSPACE = '/var/lib/jenkins/workspace/pipeline/'
     }
      tools { 
         maven 'maven' 
@@ -20,10 +20,10 @@ pipeline{
             }
             stage ("Build package") {
                 steps {
-                    dir ('/var/lib/jenkins/workspace/pipeline/rock-paper-scissors') {
+                    dir ('/var/lib/jenkins/workspace/pipeline/') {
                     sh 'pwd'
                 }
-                    sh 'cd /var/lib/jenkins/workspace/pipeline/rock-paper-scissors'
+                    sh 'cd /var/lib/jenkins/workspace/pipeline/
                     sh 'mvn -Dmaven.test.failure.ignore=true install'
                 }
             }
