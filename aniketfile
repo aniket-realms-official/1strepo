@@ -23,7 +23,7 @@ pipeline{
                     dir ('/var/lib/jenkins/workspace/pipeline/') {
                     sh 'pwd'
                 }
-                    sh 'cd /var/lib/jenkins/workspace/pipeline/
+                    sh 'cd /var/lib/jenkins/workspace/pipeline/'
                     sh 'mvn -Dmaven.test.failure.ignore=true install'
                 }
             }
