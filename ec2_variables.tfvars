@@ -1,3 +1,8 @@
+variable "aws_region" {
+  description = "AWS region"
+  type        = string
+  default     = "us-east-2"
+}
 variable "ec2_instance_type" {
   description = "Combinations of CPU, memory, storage, and networking capacity"
   type        = string
@@ -28,9 +33,4 @@ variable "sg_id" {
 variable "subnet_public_external_id" {
   type = string
   default = aws_subnet.subnet_public_external.id
-}
-variable "aws_region" {
-  description = "AWS region"
-  type        = string
-  default     = "us-east-2"
 }
