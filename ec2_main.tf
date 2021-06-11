@@ -6,3 +6,7 @@ resource "aws_instance" "myfirstEC2" {
   vpc_security_group_ids = var.sg_id
   subnet_id              = var.subnet_public_external_id
 }
+provider "aws" {
+  profile = "default"
+  region  = var.aws_region
+}
