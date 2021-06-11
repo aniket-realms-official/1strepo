@@ -1,10 +1,3 @@
-
-variable "ec2_ami" {
-  description = "Select the approriate ami id (region based)  from AWS console"
-  type        = string
-  default     = "ami-0ea03bb5978f0255e"
-}
-
 variable "ec2_instance_type" {
   description = "Combinations of CPU, memory, storage, and networking capacity"
   type        = string
