@@ -22,11 +22,11 @@ variable "ec2_count" {
   type        = number
   default     = "1"
 }
-variable "sg_id" {
-  type = string
-  default = ["${aws_security_group.sg_01.id}"]
-}
-variable "subnet_public_external_id" {
-  type = string
-  default = aws_subnet.subnet_public_external.id
-}
+#variable "sg_id" {
+#  type = string
+#  default = ["${aws_security_group.sg_01.id}"]
+#}
+#variable "subnet_public_external_id" {
+#  type = string
+#  default = aws_subnet.subnet_public_external.id
+#}
