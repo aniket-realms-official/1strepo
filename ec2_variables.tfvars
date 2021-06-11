@@ -36,3 +36,8 @@ variable "subnet_public_external_id" {
   type = string
   default = aws_subnet.subnet_public_external.id
 }
+variable "region" {
+  description = "Select the region id"
+  type        = string
+  default     = "us-east-2"
+}
