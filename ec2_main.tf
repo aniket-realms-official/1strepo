@@ -6,6 +6,5 @@ resource "aws_instance" "myfirstEC2" {
   subnet_id              = var.subnet_public_external_id
 }
 provider "aws" {
-  profile = "default"
   region  = var.aws_region
 }
