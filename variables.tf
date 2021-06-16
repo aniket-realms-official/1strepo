@@ -1,6 +1,3 @@
-variable "region" {
-  type = map
-  default = {
-    "amsterdam" = "us-east-1"
-  }
+variable "aws_region" {
+	#default = "us-east-1"
 }
