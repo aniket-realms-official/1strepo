@@ -1,3 +1,4 @@
-provider "aws" {
-  region = "${var.region}"
+variable "region" {
+  description = "Use AWS region"
+  type        = string
 }
