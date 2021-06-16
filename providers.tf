@@ -9,5 +9,5 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   region = "${var.region}"
-  region_az = "$(var.region_az)"
+  region_az = "${var.region_az}"
 }
