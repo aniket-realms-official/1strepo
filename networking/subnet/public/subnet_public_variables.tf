@@ -64,3 +64,6 @@ variable "int_public_subnet__tags" {
     Name               = "subnet_public_internal"
   }
 } */
+variable "region" {
+  region = "${var.region}"
+}
