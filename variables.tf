@@ -1,3 +1,3 @@
-variable "region" {
-  type    = list(string)
+provider "aws" {
+  region = "${var.region}"
 }
