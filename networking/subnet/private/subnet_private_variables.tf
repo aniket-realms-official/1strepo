@@ -7,7 +7,7 @@ variable "pri_sub_cidr_block" {
 variable "pri_sub_availability_zone" {
   description = ""
   type        = string
-  region      = "${var.region}"
+  default      = "${var.region}"
 }
 
 variable "pri_sub_tags" {
