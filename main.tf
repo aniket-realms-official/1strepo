@@ -91,6 +91,6 @@ module "ec2" {
 #  ]
 #  }
 module "aws_provider" {
-  source = "./providers.tf"
+  source = "./"
   region = "${var.region}"
 }
