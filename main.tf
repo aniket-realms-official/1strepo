@@ -12,6 +12,7 @@ module "vpc" {
 module "private_subnet" {
   source = "./networking/subnet/private" #Project path: networking\subnet\private
   vpc_id = module.vpc.vpc_id
+  depends_on = ["module.aws_provider"]
 }
 
 #####################################################
@@ -21,6 +22,7 @@ module "private_subnet" {
 module "public_subnet" {
   source = "./networking/subnet/public" #Project path: networking\subnet\public
   vpc_id = module.vpc.vpc_id
+  depends_on = ["module.aws_provider"]
 }
 
 # #######################################################
@@ -88,3 +90,7 @@ module "ec2" {
 #   tls_private_key.myec2keypair
 #  ]
 #  }
+module "aws_provider" {
+  source = "./providers.tf
+  region = "${var.region}"
+}
