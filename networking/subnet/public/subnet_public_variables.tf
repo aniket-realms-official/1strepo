@@ -14,7 +14,7 @@ variable "pub_cidr_block" {
 variable "pub_az" {
   description = ""
   type        = string
-  region      = "${var.region}"
+  default      = "${var.region}"
 }
 
 variable "map_public_ip" {
