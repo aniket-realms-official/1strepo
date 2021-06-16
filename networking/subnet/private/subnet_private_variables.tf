@@ -23,3 +23,6 @@ variable "pri_sub_tags" {
 variable "vpc_id" {
   type = string
 }
+variable "region" {
+  region = "${var.region}"
+}
