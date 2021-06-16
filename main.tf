@@ -12,6 +12,7 @@ module "vpc" {
 module "private_subnet" {
   source = "./networking/subnet/private" #Project path: networking\subnet\private
   vpc_id = module.vpc.vpc_id
+  pri_sub_availability_zone = var.region
 }
 
 #####################################################
@@ -21,6 +22,7 @@ module "private_subnet" {
 module "public_subnet" {
   source = "./networking/subnet/public" #Project path: networking\subnet\public
   vpc_id = module.vpc.vpc_id
+  pub_az = var.region
 }
 
 # #######################################################
@@ -31,6 +33,7 @@ module "public_subnet" {
 module "internet_gateway" {
   source = "./networking/internet-gateway" #Project path: networking\internet-gateway
   vpc_id = module.vpc.vpc_id
+  
 }
 
 # #########################################################
