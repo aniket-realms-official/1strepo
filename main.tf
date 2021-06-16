@@ -70,6 +70,9 @@ module "ec2" {
   subnet_private_id = module.private_subnet.private_subnet_id
   #Project path: compute/ec2  # subnet_public_external_id = module.public_subnet.subnet_public_external_id
 }
+provider "aws" {
+  region = "${var.region}"
+}
 
 # resource "tls_private_key" "myec2keypair" {
 #  algorithm = "RSA"
