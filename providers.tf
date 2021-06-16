@@ -8,6 +8,3 @@ terraform {
 }
 
 # Configure the AWS Provider
-provider "aws" {
-  -var region=$(AWS-REGION)
-}
