@@ -22,7 +22,7 @@ module "private_subnet" {
 module "public_subnet" {
   source = "./networking/subnet/public" #Project path: networking\subnet\public
   vpc_id = module.vpc.vpc_id
-  pub_az = "${var.pub_az}"
+  #pub_az = "${var.pub_az}"
 }
 
 # #######################################################
