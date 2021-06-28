@@ -12,7 +12,7 @@ module "vpc" {
 module "private_subnet" {
   source = "./networking/subnet/private" #Project path: networking\subnet\private
   vpc_id = module.vpc.vpc_id
-  pri_sub_availability_zone = var.pri_sub_availability_zone
+  pri_sub_availability_zone = var.private_subnet
 }
 
 #####################################################
