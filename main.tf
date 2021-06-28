@@ -9,7 +9,7 @@ module "vpc" {
 #####################################################
 #             Step2.1 : Private Subnet Creation     #
 #####################################################
-module "subnet_private" {
+module "aws_subnet" "subnet_private" {
   source = "./networking/subnet/private" #Project path: networking\subnet\private
   vpc_id = module.vpc.vpc_id
   pri_sub_availability_zone = var.pri_sub_availability_zone
@@ -19,7 +19,7 @@ module "subnet_private" {
 # Step2.2 : Public External Subnet Creation         #
 # Step2.3 : Public Internal Subnet Creation         #
 #####################################################
-module "subnet_public" {
+module "aws_subnet" "subnet_public" {
   source = "./networking/subnet/public" #Project path: networking\subnet\public
   vpc_id = module.vpc.vpc_id
   pub_az =var.pub_az
