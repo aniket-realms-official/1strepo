@@ -1,2 +1,10 @@
-pri_sub_availability_zone = var.pri_sub_availability_zone
-pub_az = var.pub_az
+variable "pub_az" {
+  description = ""
+  type        = string
+  default     = "us-west-1a"
+}
+variable "pri_sub_availability_zone" {
+  description = ""
+  type        = string
+  default     = "us-west-1a"
+}
