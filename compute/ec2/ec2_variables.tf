@@ -1,3 +1,6 @@
+#######################################
+####### EC2 Resource Paramters ########
+#######################################
 
 variable "ec2_ami" {
   description = "Select the approriate ami id (region based)  from AWS console"
@@ -11,24 +14,8 @@ variable "ec2_instance_type" {
   default     = "t2.micro"
 }
 
-variable "ec2_tags_Public" {
-  description = "Tags to apply to resources created by ec2 module"
-  type        = map(string)
-  default = {
-    CreatedByTerraform = "true"
-    Environment        = "dev"
-    Name               = "WebServer"
-  }
-}
-
-variable "ec2_tags_Private" {
-  description = "Tags to apply to resources created by ec2 module"
-  type        = map(string)
-  default = {
-    CreatedByTerraform = "true"
-    Environment        = "dev"
-    Name               = "AppServer"
-  }
+variable "ec2_name" {
+  description = "Name tag for Ec2 instance, should be passed in main.tf file."
 }
 
 variable "ec2_count" {
@@ -37,25 +24,25 @@ variable "ec2_count" {
   default     = "1"
 }
 
-variable "sg_id_01" {
+variable "sg_id" {
   #default = ["${aws_security_group.sg_01.id}"]
 }
 
-variable "sg_id_02" {
-  #default = ["${aws_security_group.sg_02.id}"]
-}
-
-variable "subnet_public_id" {
+variable "subnet_id" {
   type = string
   #default = aws_subnet.subnet_public.id
 }
 
-variable "subnet_private_id" {
-  type = string
-  #default = aws_subnet.subnet_private.id
+#####################################
+####### EBS Volume Paramters ########
+#####################################
+
+variable "volume_size" {
+  description = "Volume Size in GB's"
+  type = number
+  default = "1"
 }
 
-# variable "ec2_key_pair" {
-#   type = string
-#   #default = aws_key_pair.generated_key.myec2keypair
-# }
+variable "ec2_ebs_volume_count" {
+  default = "1"
+}

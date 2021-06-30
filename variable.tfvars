@@ -1,2 +1,2 @@
-public_az = "${var.public_az}"
-private_az = "${var.private_az}"
+public_az = "us-west-1b"
+private_az = "us-west-1a"

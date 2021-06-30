@@ -9,7 +9,7 @@ module "vpc" {
 #####################################################
 #             Step2.1 : Private Subnet Creation     #
 #####################################################
-module "aws_subnet" "subnet_private" {
+module "private_subnet" {
   source = "./networking/subnet/private" #Project path: networking\subnet\private
   vpc_id = module.vpc.vpc_id
   pri_sub_availability_zone = var.private_az
@@ -17,9 +17,8 @@ module "aws_subnet" "subnet_private" {
 
 #####################################################
 # Step2.2 : Public External Subnet Creation         #
-# Step2.3 : Public Internal Subnet Creation         #
 #####################################################
-module "aws_subnet" "subnet_public" {
+module "public_subnet" {
   source = "./networking/subnet/public" #Project path: networking\subnet\public
   vpc_id = module.vpc.vpc_id
   pub_az = var.public_az
@@ -78,19 +77,22 @@ module "security_group" {
 ######################################
 
 module "external_webserver" {
-  source = "./compute/external_webserver"
-  sg_id_01 = ["${module.security_group.sg_01_id}"]
-  subnet_public_id = module.public_subnet.subnet_public_id
+  #source = "./compute/external_webserver"   -- commented as testing
+  source = "./compute/ec2"
+  sg_id = ["${module.security_group.sg_01_id}"]
+  subnet_id = module.public_subnet.subnet_public_id
+  ec2_name = "external_webserver_01"
   }
 
-  ######################################
-  #     Internal Server module      #
-  ######################################
+  #####################################
+      Internal Server module      #
+  #####################################
 
   module "internal_webserver" {
-    source = "./compute/internal_webserver"
-    sg_id_01 = ["${module.security_group.sg_01_id}"]
-    subnet_public_id = module.public_subnet.subnet_public_id
+    source = "./compute/ec2"
+    sg_id = ["${module.security_group.sg_01_id}"]
+    subnet_id = module.public_subnet.subnet_public_id
+    ec2_name = "internal_webserver_01"
     }
 
     ######################################
@@ -98,9 +100,10 @@ module "external_webserver" {
     ######################################
 
   module "app_server" {
-    source = "./compute/appserver"
-    sg_id_02 = ["${module.security_group.sg_02_id}"]
-    subnet_private_id = module.private_subnet.private_subnet_id
+    source = "./compute/ec2"
+    sg_id = ["${module.security_group.sg_02_id}"]
+    subnet_id = module.private_subnet.private_subnet_id
+    ec2_name = "app_server"
     }
 
 
@@ -109,9 +112,10 @@ module "external_webserver" {
     ######################################
 
     module "coreauth_server" {
-    source = "./compute/coreauth_server"
-    sg_id_02 = ["${module.security_group.sg_02_id}"]
-    subnet_private_id = module.private_subnet.private_subnet_id
+    source = "./compute/ec2"
+    sg_id = ["${module.security_group.sg_02_id}"]
+    subnet_id = module.private_subnet.private_subnet_id
+    ec2_name = "coreauth_server"
     }
 
     ######################################
@@ -119,9 +123,10 @@ module "external_webserver" {
     ######################################
 
     module "kms_server" {
-    source = "./compute/kms_server"
-    sg_id_02 = ["${module.security_group.sg_02_id}"]
-    subnet_private_id = module.private_subnet.private_subnet_id
+    source = "./compute/ec2"
+    sg_id = ["${module.security_group.sg_02_id}"]
+    subnet_id = module.private_subnet.private_subnet_id
+    ec2_name = "kms_server"
     }
 
     ######################################
@@ -129,9 +134,10 @@ module "external_webserver" {
     ######################################
 
     module "tnp_server" {
-    source = "./compute/tnp_server"
-    sg_id_02 = ["${module.security_group.sg_02_id}"]
-    subnet_private_id = module.private_subnet.private_subnet_id
+    source = "./compute/ec2"
+    sg_id = ["${module.security_group.sg_02_id}"]
+    subnet_id = module.private_subnet.private_subnet_id
+    ec2_name = "tnp_server"
     }
 
     ######################################
@@ -139,9 +145,10 @@ module "external_webserver" {
     ######################################
 
     module "wcf_server" {
-    source = "./compute/wcf_server"
-    sg_id_02 = ["${module.security_group.sg_02_id}"]
-    subnet_private_id = module.private_subnet.private_subnet_id
+    source = "./compute/ec2"
+    sg_id = ["${module.security_group.sg_02_id}"]
+    subnet_id = module.private_subnet.private_subnet_id
+    ec2_name = "wcf_server"
     }
 
     ######################################
@@ -149,9 +156,10 @@ module "external_webserver" {
     ######################################
 
     module "workflow_server" {
-    source = "./compute/workflow_server"
-    sg_id_02 = ["${module.security_group.sg_02_id}"]
-    subnet_private_id = module.private_subnet.private_subnet_id
+    source = "./compute/ec2"
+    sg_id = ["${module.security_group.sg_02_id}"]
+    subnet_id = module.private_subnet.private_subnet_id
+    ec2_name = "workflow_server"
     }
 
 
@@ -160,10 +168,13 @@ module "external_webserver" {
     ######################################
 
     module "db_server" {
-    source = "./compute/db_server"
-    sg_id_02 = ["${module.security_group.sg_02_id}"]
-    subnet_private_id = module.private_subnet.private_subnet_id
+    source = "./compute/ec2"
+    sg_id = ["${module.security_group.sg_02_id}"]
+    subnet_id = module.private_subnet.private_subnet_id
+    ec2_name = "db_server"
     }
+
+
 # resource "tls_private_key" "myec2keypair" {
 #  algorithm = "RSA"
 # }
