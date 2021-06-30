@@ -1,10 +1,6 @@
-variable "pub_az" {
-  description = ""
-  type        = string
-  default     = "us-west-1a"
+variable "public_az" {
+  default = ""
 }
-variable "pri_sub_availability_zone" {
-  description = ""
-  type        = string
-  default     = "us-west-1a"
+variable "private_az" {
+  default = ""
 }
