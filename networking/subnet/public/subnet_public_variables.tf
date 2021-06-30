@@ -14,7 +14,7 @@ variable "pub_cidr_block" {
 variable "pub_az" {
   description = ""
   type        = string
-  default     = "us-west-1a"
+  #default     = "us-west-1a"
 }
 
 variable "map_public_ip" {
