@@ -1,7 +1,5 @@
 provider "aws" {
-  profile = "default"
-  #region  = "${var.region}"
-  region = var.region
+  region  = "us-west-2"
 }
 #####################################################
 #               Step1 : VPC Creation                #
