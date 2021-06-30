@@ -4,3 +4,6 @@ variable "public_az" {
 variable "private_az" {
   default = ""
 }
+variable "region" {
+  default = ""
+}
