@@ -1,6 +1,7 @@
 provider "aws" {
   profile = "default"
   region  = "${var.region}"
+  region = var.region
 }
 #####################################################
 #               Step1 : VPC Creation                #
