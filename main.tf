@@ -85,7 +85,7 @@ module "external_webserver" {
   }
 
   #####################################
-      Internal Server module      #
+    #  Internal Server module      #
   #####################################
 
   module "internal_webserver" {
