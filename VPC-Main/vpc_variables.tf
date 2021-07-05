@@ -25,7 +25,7 @@ variable "ig_tags" {
   default = {
     CreatedByTerraform = "true"
     Environment        = "dev"
-    Name               = "IGW_Final_Saurabh"
+    Name               = "IGW_Final"
   }
 }
 
