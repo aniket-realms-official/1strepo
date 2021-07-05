@@ -20,7 +20,7 @@ resource "aws_instance" "ec2_instances_final" {
   count                  = 2
   ami                    = "${data.aws_ami.Windows.id}"
   instance_type          = var.instance_type
-  key_name               = "Ec2_connect"
+  #key_name               = "Ec2_connect"
   vpc_security_group_ids = ["${var.security_group}"]
   subnet_id              = "${element(var.subnets, count.index )}"
   user_data              = data.template_file.userdata_win.rendered
