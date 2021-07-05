@@ -15,7 +15,7 @@ variable "vpc_tags" {
   default = {
     CreatedByTerraform = "true"
     Environment        = "dev"
-    Name               = "CoreCard_VPC_Final_aniket"
+    Name               = "CoreCard_VPC_Final"
   }
 }
 
