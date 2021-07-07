@@ -2,12 +2,12 @@ variable "region" {
   description = "Use AWS region"
   type        = string
 }
-variable "ec2_count" {
-default = "2"
+variable "count" {
+default = ""
 }
-variable "ebs_vol_size" {
-default = "10"
+variable "size" {
+default = ""
 }
-variable "instance_type" {
-default = "t2.micro"
+variable "ec2_instance_type" {
+default = ""
 }
