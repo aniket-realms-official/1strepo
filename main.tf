@@ -9,7 +9,9 @@ module "vpc" {
 #external webserver configuration
 module "extweb_server" {
   source         = "./ec2"
-  instance_type  = "t2.micro"
+  instance_type  = "${var.instance_type}"
+  ebs_vol_size   = "${var.ebs_vol_size}"
+  ec2_count      = "${var.ec2_count}"
   security_group = module.vpc.security_group
   subnets        = module.vpc.public_subnets
   ec2_name       = "external_webserver"
