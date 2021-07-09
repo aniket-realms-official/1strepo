@@ -3,11 +3,9 @@ variable "region" {
   type        = string
 }
 variable "ec2_count" {
-  default = ""
+  default = "2"
 }
 variable "ebs_vol_size" {
-  default = ""
+  default = "10"
 }
-variable "instance_type" {
-  default = "t2.micro"
-}
+variable "instance_type" {}
