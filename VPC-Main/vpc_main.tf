@@ -25,7 +25,7 @@ resource "aws_subnet" "public_subnet" {
   availability_zone       = "${data.aws_availability_zones.available.names[count.index]}"
 
   tags = {
-    Name = "CoreCard-public-subnet-Final-Saurabh.${count.index + 1}"
+    Name = "CoreCard-public-subnet-Final.${count.index + 1}"
   }
 }
 
@@ -37,7 +37,7 @@ resource "aws_subnet" "private_subnet" {
   availability_zone = "${data.aws_availability_zones.available.names[count.index]}"
 
   tags = {
-    Name = "CoreCard-private-subnet-Final-Saurabh.${count.index + 1}"
+    Name = "CoreCard-private-subnet-Final.${count.index + 1}"
   }
 }
 
